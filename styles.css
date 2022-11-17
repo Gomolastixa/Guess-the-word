@@ -1,12 +1,14 @@
-body
-{
-    text-align: center;
-}
 
 p
 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.centered
+{
+    text-align: center;
+}
+
 #guesses
 {
     margin-left: auto;
@@ -17,10 +19,5 @@ p
 {
     font-size: large;
     background-color: rgb(97, 167, 227);
-}
-
-button:disabled
-{
-    color: antiquewhite;
-    background-color: red;
+    margin: 2px;
 }

@@ -37,21 +37,27 @@ function initiateGame()
 
 function checkLetter(l)
 {
+    document.getElementById(l).style.color = "antiquewhite" ;
+    document.getElementById(l).style.background = "firebrick" ;
+ 
     for (i = 0; i < word_to_guess.length; i++)
     {
         if (l == word_to_guess_array[i]) 
         {
             guessed_letters[i] = l;
             document.getElementById("guessed_so_far").innerHTML = guessed_letters.join(" ");
-            
-
-        };
+            document.getElementById(l).style.color = "antiquewhite" ;
+            document.getElementById(l).style.background = "forestgreen" ;   
+        }
     };
-    guesses_made ++;
+
+    guesses_made ++ ;
     document.getElementById("number_of_guesses").innerHTML = guesses_made;
+
     if (guessed_letters.indexOf("_") == -1) {
         alert("Congratulations!");
         document.getElementById("newgame").style.display = "inline" ;
     };
+    
     document.getElementById(l).disabled = true ;
 }
