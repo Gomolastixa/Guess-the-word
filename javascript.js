@@ -2,12 +2,32 @@
 const words = ["VIENNA","ATHENS","BERLIN","SARAJEVO","BRNO","MADRID",
                "TAMPERE","YEREVAN","MOGADISU","SOFIA","OSAKA"];
 
+const key_layout = [ "Q","W","E","R","T","Y","U","I","O","P",
+                        "A","S","D","F","G","H","J","K","L",
+                        "Z","X","C","V","B","N","M" ];
+
 var guessed_letters = [] ;
-var word_to_guess ;
+var word_to_guess = null ;
 var word_to_guess_array = [] ;
-var guesses_made ;
+var guesses_made = null ;
 const letter_buttons = document.getElementsByClassName('letter_button');
 
+function renderButtons()
+{
+    const lineBreak = ["P", "L"];
+
+    for (key in key_layout) 
+    {
+        document.getElementById("keys_area").innerHTML += "<button type=\"button\" class=\"letter_button\" id=\"" + key_layout[key] +
+                                                            "\" onclick=\"checkLetter(this.id)\">" 
+                                                           + key_layout[key] + "</button>" ;
+
+        if (lineBreak.indexOf(key_layout[key]) != -1)
+        {
+            document.getElementById("keys_area").innerHTML += "<br></br>" ;
+        }
+    } ;
+} ;
 
 function initiateGame()
 {   
@@ -31,6 +51,8 @@ function initiateGame()
     for ( i in letter_buttons )
     {
         letter_buttons[i].disabled = false ;
+        letter_buttons[i].style.color = "black" ;
+        letter_buttons[i].style.background = "rgb(97, 167, 227)" ;
     }
     document.getElementById('newgame').style.display = "none" ;
 }
@@ -61,3 +83,5 @@ function checkLetter(l)
     
     document.getElementById(l).disabled = true ;
 }
+
+document.addEventListener("DOMContentLoaded", function(){renderButtons()}) ;
