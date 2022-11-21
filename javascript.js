@@ -21,6 +21,7 @@ function renderButtons()
         document.getElementById("keys_area").innerHTML += "<button type=\"button\" class=\"letter_button\" id=\"" + key_layout[key] +
                                                             "\" onclick=\"checkLetter(this.id)\">" 
                                                            + key_layout[key] + "</button>" ;
+        
 
         if (lineBreak.indexOf(key_layout[key]) != -1)
         {
@@ -54,7 +55,7 @@ function initiateGame()
         letter_buttons[i].style.color = "black" ;
         letter_buttons[i].style.background = "rgb(97, 167, 227)" ;
     }
-    document.getElementById('newgame').style.display = "none" ;
+    document.getElementById("new_game").style.display = "none" ; // δεν κρυβει το div (?!)
 }
 
 function checkLetter(l)
@@ -78,10 +79,21 @@ function checkLetter(l)
 
     if (guessed_letters.indexOf("_") == -1) {
         alert("Congratulations!");
-        document.getElementById("newgame").style.display = "inline" ;
+        document.getElementById("new_game").style.display = "inline" ;
     };
     
     document.getElementById(l).disabled = true ;
 }
 
 document.addEventListener("DOMContentLoaded", function(){renderButtons()}) ;
+
+document.addEventListener("keydown", (KeyboardEvent) => {
+
+    checkLetter(KeyboardEvent.key.toUpperCase());
+
+    if(KeyboardEvent.code == 'Space')
+    {
+        initiateGame();
+    }
+}) ;
+

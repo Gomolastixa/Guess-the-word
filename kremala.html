@@ -5,27 +5,49 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body onload="initiateGame()"> 
+
     <br><br><br>
+
     <div class="centered">
+
         <p>
             Each "_" sign hides a letter of the word. <br><br>
-            Try to find out the city in the world by pressing the buttons!!!
+            Try to find out the city in the world by clicking the buttons!
         </p>
+
         <br><br><br>
+
         <h1 id="guessed_so_far"></h1>
+
         <br><br><br>
+
         <div id="keys_area">
 
         </div>
+
+        <p>
+           You can also pick with your keyboard!
+        </p>
+
         <br><br>
+
         <table id="guesses">
             <tr>
                 <th>Guesses Made :</th>
                 <td id="number_of_guesses"></td>
             </tr>
         </table>
+
+
         <br><br>
-        <button type="button" id="newgame" onclick="initiateGame()">New Game</button>
+
+        <div id="new_game">
+            <button type="button"  onclick="initiateGame()">New Game</button>
+            <p>
+                Press the <kbd>Spacebar</kbd>  for new game!
+            </p>
+        </div>
+
     </div>
 
     <script src="javascript.js"></script>
