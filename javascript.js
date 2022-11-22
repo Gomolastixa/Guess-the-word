@@ -91,9 +91,11 @@ document.addEventListener("keydown", (KeyboardEvent) => {
 
     checkLetter(KeyboardEvent.key.toUpperCase());
 
+    KeyboardEvent.preventDefault() ;
+
     if(KeyboardEvent.code == 'Space')
     {
-        initiateGame();
-    }
+        initiateGame(); //  καποιες φορες δεν δουλευει αμα πατηθει γραμμα
+    }                   // αμα πατηθει στην αρχη κολλαει
 }) ;
 
